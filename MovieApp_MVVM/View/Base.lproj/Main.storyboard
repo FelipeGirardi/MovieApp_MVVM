@@ -199,7 +199,7 @@
         <!--Now Playing-->
         <scene sceneID="h0u-1Z-8kN">
             <objects>
-                <viewController title="Now Playing" id="uMV-Mn-l0u" sceneMemberID="viewController">
+                <viewController title="Now Playing" id="uMV-Mn-l0u" customClass="NowPlayingViewController" customModule="MovieApp_MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3dm-2r-141">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +266,7 @@
         <!--Movie Details-->
         <scene sceneID="vbR-vZ-vam">
             <objects>
-                <viewController title="Movie Details" id="9OA-HL-Fpo" sceneMemberID="viewController">
+                <viewController title="Movie Details" id="9OA-HL-Fpo" customClass="DetailsViewController" customModule="MovieApp_MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Py9-Xy-TmU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
