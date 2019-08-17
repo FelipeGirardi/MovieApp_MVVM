@@ -8,8 +8,8 @@
 
 import Foundation
 
-// MARK: - Movies
-struct Movies: Codable {
+// MARK: - NowPlayingMovies
+struct NowPlayingMovies: Codable {
     let results: [Result]
     let page, totalResults: Int
     let dates: Dates
@@ -20,6 +20,18 @@ struct Movies: Codable {
         case totalResults = "total_results"
         case dates
         case totalPages = "total_pages"
+    }
+}
+
+struct PopularMovies: Codable {
+    let page, totalResults, totalPages: Int
+    let results: [Result]
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case results
     }
 }
 
