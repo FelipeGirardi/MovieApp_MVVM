@@ -9,5 +9,8 @@
 import UIKit
 
 class TableCellViewController: UITableViewCell {
-    
+    @IBOutlet var posterImgView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
 }
