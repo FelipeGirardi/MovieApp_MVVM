@@ -10,7 +10,7 @@ import Foundation
 
 struct DataService {
     
-    static func saveNowPlayingMovies() {
+    static func getNowPlayingMovies() {
         
         let urlString = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=fb61737ab2cdee1c07a947778f249e7d&page=1")
         
@@ -35,7 +35,7 @@ struct DataService {
         }
     }
     
-    static func savePopularMovies() {
+    static func getPopularMovies() {
         
         let urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=fb61737ab2cdee1c07a947778f249e7d&page=1")
         
@@ -48,6 +48,32 @@ struct DataService {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let modelData = try jsonDecoder.decode(PopularMovies.self, from: jsonData)
+                            print(modelData)
+                            
+                        } catch {
+                            print("JSON Processing Fail")
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    static func getMovieFromID(id: Int) {
+        
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(id)?api_key=fb61737ab2cdee1c07a947778f249e7d")
+        
+        if let url = urlString {
+            print (try? String(contentsOf: url))
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let jsonData = data {
+                        do {
+                            let jsonDecoder = JSONDecoder()
+                            let modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
                             print(modelData)
                             
                         } catch {
