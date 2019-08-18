@@ -10,12 +10,12 @@ import Foundation
 
 struct DataService {
     
-    static func getNowPlayingMovies() {
+    static func getNowPlayingMovies(completionHandler: @escaping (_ movies: NowPlayingMovies) -> Void) {
         
         let urlString = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=fb61737ab2cdee1c07a947778f249e7d&page=1")
         
         if let url = urlString {
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil {
                     print(error!)
                 } else {
@@ -23,24 +23,26 @@ struct DataService {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let modelData = try jsonDecoder.decode(NowPlayingMovies.self, from: jsonData)
-                            print(modelData)
+                            //print(modelData)
+                            
+                            completionHandler(modelData)
                             
                         } catch {
                             print("JSON Processing Fail")
                         }
                     }
                 }
-            }
+            })
             task.resume()
         }
     }
     
-    static func getPopularMovies() {
+    static func getPopularMovies(completionHandler: @escaping (_ movies: PopularMovies) -> Void) {
         
         let urlString = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=fb61737ab2cdee1c07a947778f249e7d&page=1")
         
         if let url = urlString {
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil {
                     print(error!)
                 } else {
@@ -48,24 +50,25 @@ struct DataService {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let modelData = try jsonDecoder.decode(PopularMovies.self, from: jsonData)
-                            print(modelData)
+                            //print(modelData)
+                            
+                            completionHandler(modelData)
                             
                         } catch {
                             print("JSON Processing Fail")
                         }
                     }
                 }
-            }
+            })
             task.resume()
         }
     }
-    
-    static func getMovieFromID(id: Int) {
+
+    static func getMovieFromID(id: Int, completionHandler: @escaping (_ movie: Movie) -> Void) {
         
         let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(id)?api_key=fb61737ab2cdee1c07a947778f249e7d")
         
         if let url = urlString {
-            print (try? String(contentsOf: url))
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     print(error!)
@@ -74,7 +77,9 @@ struct DataService {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
-                            print(modelData)
+                            //print(modelData)
+                            
+                            completionHandler(modelData)
                             
                         } catch {
                             print("JSON Processing Fail")

@@ -138,13 +138,13 @@
 		C06BFDAD2305F15A0075F525 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C06BFDAF2305F2570075F525 /* CollectionCellViewModel.swift */,
-				C06BFDB12305F27E0075F525 /* TableCellViewModel.swift */,
-				C06BFDB32305F29D0075F525 /* DetailsViewModel.swift */,
-				4638335E2307415900EA4483 /* PopularCellViewModel.swift */,
 				C02C993B23088CB6007D28FF /* MainViewModel.swift */,
-				C02C993D23088CCA007D28FF /* NowPlayingCellViewModel.swift */,
+				C06BFDB32305F29D0075F525 /* DetailsViewModel.swift */,
+				C06BFDAF2305F2570075F525 /* CollectionCellViewModel.swift */,
 				C02C993F23088CDB007D28FF /* NowPlayingViewModel.swift */,
+				C02C993D23088CCA007D28FF /* NowPlayingCellViewModel.swift */,
+				C06BFDB12305F27E0075F525 /* TableCellViewModel.swift */,
+				4638335E2307415900EA4483 /* PopularCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
