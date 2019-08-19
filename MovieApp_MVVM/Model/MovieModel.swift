@@ -75,6 +75,7 @@ enum OriginalLanguage: String, Codable {
     case id = "id"
     case ja = "ja"
     case ko = "ko"
+    case de = "de"
 }
 
 // MARK: - Movie
@@ -83,7 +84,7 @@ struct Movie: Codable {
     let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
     let budget: Int?
-    let genres: [Genre]?
+    var genres: [Genre]?
     let homepage: String?
     let id: Int?
     let imdbID, originalLanguage, originalTitle, overview: String?
@@ -167,5 +168,17 @@ struct SpokenLanguage: Codable {
     enum CodingKeys: String, CodingKey {
         case iso639_1 = "iso_639_1"
         case name
+    }
+}
+
+struct SearchedMovies: Codable {
+    let page, totalResults, totalPages: Int
+    let results: [Result]
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case results
     }
 }

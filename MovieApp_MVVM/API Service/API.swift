@@ -64,9 +64,9 @@ struct DataService {
         }
     }
 
-    static func getMovieFromID(id: Int, completionHandler: @escaping (_ movie: Movie) -> Void) {
+    static func getMoviesThroughSearch(typedString: String, completionHandler: @escaping (_ movie: SearchedMovies) -> Void) {
         
-        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(id)?api_key=fb61737ab2cdee1c07a947778f249e7d")
+        let urlString = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=fb61737ab2cdee1c07a947778f249e7d&language=en-US&query=\(typedString)&page=1&include_adult=false")
         
         if let url = urlString {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -76,7 +76,34 @@ struct DataService {
                     if let jsonData = data {
                         do {
                             let jsonDecoder = JSONDecoder()
-                            var modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
+                            let modelData = try jsonDecoder.decode(SearchedMovies.self, from: jsonData)
+                            //print(modelData)
+                            
+                            completionHandler(modelData)
+                            
+                        } catch {
+                            print("JSON Processing Fail")
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    static func getMovieDetails(movieID: Int, completionHandler: @escaping (_ movie: Movie) -> Void) {
+        
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=fb61737ab2cdee1c07a947778f249e7d&language=en-US")
+        
+        if let url = urlString {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let jsonData = data {
+                        do {
+                            let jsonDecoder = JSONDecoder()
+                            let modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
                             //print(modelData)
                             
                             completionHandler(modelData)
