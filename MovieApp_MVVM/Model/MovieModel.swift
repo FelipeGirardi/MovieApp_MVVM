@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - NowPlayingMovies
 struct NowPlayingMovies: Codable {
-    let results: [Result]?
+    var results: [Result]?
     let page, totalResults: Int?
     let dates: Dates?
     let totalPages: Int?

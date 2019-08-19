@@ -18,9 +18,12 @@ class NowPlayingCellViewModel {
     
     func fetchNowPlayingMovies() {
         DataService.getNowPlayingMovies { movies in
-            self.nowPlayingMovies = movies
-            //print(movies)
+            
+            let filteredSlice = movies.results?[...4] ?? []
+            
+            self.nowPlayingMovies.results = Array(filteredSlice)
+            //print(self.nowPlayingMovies)
         }
-    }
     
+    }
 }

@@ -76,7 +76,7 @@ struct DataService {
                     if let jsonData = data {
                         do {
                             let jsonDecoder = JSONDecoder()
-                            let modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
+                            var modelData = try jsonDecoder.decode(Movie.self, from: jsonData)
                             //print(modelData)
                             
                             completionHandler(modelData)
