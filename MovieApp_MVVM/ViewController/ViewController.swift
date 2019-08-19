@@ -34,7 +34,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popularCell") as? PopularCell
             cell?.popularTableView.delegate = cell
             cell?.popularTableView.dataSource = cell
-            
+            cell?.popularTableView.estimatedRowHeight = 159.0
+            cell?.popularTableView.rowHeight = 159.0
             return cell!
         }
         
@@ -46,6 +47,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 371.0
+        }
+        else {
+            return 370.0
+        }
     }
 }
 

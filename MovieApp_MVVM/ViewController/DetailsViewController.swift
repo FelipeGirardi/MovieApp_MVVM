@@ -16,25 +16,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
     
-    private var modelView: DetailsViewModel = DetailsViewModel()
-    
-    var titleStr: String?
-    var scoreFloat: Float?
-    var overviewStr: String?
-    var posterImg: UIImage?
+    var modelView: DetailsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let overviewText: String = overviewStr {
-            // Popular movies
-            // Need to create a request for movie gender
-        }
-        else {
-            // Now Playing
-            // Need to create a request for movie gender
-            // Need to create a request for movie overview
-        }
     }
     
     
