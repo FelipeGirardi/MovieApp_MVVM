@@ -10,7 +10,7 @@ import UIKit
 
 class NowPlayingCell: UITableViewCell {
     @IBOutlet weak var nowPlayingCollection: UICollectionView!
-    private var modelView: NowPlayingCellViewModel = NowPlayingCellViewModel()
+    var modelView: NowPlayingCellViewModel = NowPlayingCellViewModel()
 }
 
 extension NowPlayingCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -25,6 +25,4 @@ extension NowPlayingCell: UICollectionViewDelegate, UICollectionViewDataSource {
         cell?.scoreLabel.text = "2.3"
         return cell!
     }
-    
-    
 }

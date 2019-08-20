@@ -335,6 +335,11 @@
                                             <constraint firstAttribute="bottom" secondItem="D89-81-4zY" secondAttribute="bottom" constant="31" id="ouH-cc-bvm"/>
                                             <constraint firstAttribute="trailing" secondItem="InK-3M-XwD" secondAttribute="trailing" id="yS7-Os-95m"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="posterImgView" destination="rO5-LA-Ept" id="CZp-0a-OYv"/>
+                                            <outlet property="scoreLabel" destination="D89-81-4zY" id="YEa-Ir-e74"/>
+                                            <outlet property="titleLabel" destination="InK-3M-XwD" id="HrZ-nY-d1H"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

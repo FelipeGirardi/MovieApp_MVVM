@@ -13,14 +13,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainTableView: UITableView!
     
-    private var viewModel: MainViewModel = MainViewModel()
+    var viewModel: MainViewModel = MainViewModel()
+    var idMovie: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mainTableView.delegate = self
-        self.mainTableView.dataSource = self
+        self.mainTableView.isHidden = true
+        
+//        DispatchQueue.global(qos: .background).async {
+//            self.viewModel.fetchPopularMovies()
+//
+//            DispatchQueue.main.async {
+//                self.mainTableView.delegate = self
+//                self.mainTableView.dataSource = self
+//                self.mainTableView.isHidden = false
+//                self.mainTableView.reloadData()
+//            }
+//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute:
+        {
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.gray
+            loadingIndicator.startAnimating()
+            self.view.addSubview(loadingIndicator)
+            self.viewModel.fetchPopularMovies()
+            self.mainTableView.delegate = self
+            self.mainTableView.dataSource = self
+            loadingIndicator.removeFromSuperview()
+            self.mainTableView.isHidden = false
+            self.mainTableView.reloadData()
+            
+
+        })
+//
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        // Do any additional setup after loading the view.
     }
     
     
@@ -32,7 +59,7 @@ class ViewController: UIViewController {
         switch segue.identifier {
         case "toDetailSegue":
             if let detailCtrl = segue.destination as? DetailsViewController {
-                print("lola")
+                detailCtrl.modelView = DetailsViewModel(id: self.idMovie)
             }
         case "toNowPlayingSegue":
             print("foi")
@@ -58,9 +85,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             print("Popular movies")
             let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell") as? TableCellViewController
-            cell?.titleLabel.text = "Rei leão"
-            cell?.overviewLabel.text = "aidsaiosdjasiodasioj aoisdj aios jaso ijdasoi jdasoij dasioj doiajd oaij doiaj diosjdiojdaijdijaosd"
-            cell?.scoreLabel.text = "9.0"
+            cell?.titleLabel.text = self.viewModel.getPopularTitleByIndex(indexPath.row)
+            cell?.overviewLabel.text = self.viewModel.getPopularOverviewByIndex(indexPath.row)
+            cell?.scoreLabel.text = self.viewModel.getPopularScoreByIndex(indexPath.row)
             cell?.posterImgView.image = UIImage(named: "lionking")
             return cell!
         }
@@ -97,10 +124,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
+            self.idMovie = self.viewModel.getMovieIdByIndex(indexPath.row)
             performSegue(withIdentifier: "toDetailSegue", sender: nil)
         }
     }
     
 }
 
-
+extension ViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}

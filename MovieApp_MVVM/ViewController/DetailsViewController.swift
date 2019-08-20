@@ -20,7 +20,23 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        self.modelView?.delegate = self
+        self.modelView?.fetchMovieFromID()
+    }
+}
+
+extension DetailsViewController: FetchMovieDelegate {
+    func didFinishFetchMovie() {
+        DispatchQueue.main.async {
+            self.titleLabel.text = self.modelView?.getTitle()
+            self.genreLabel.text = self.modelView?.getGenre()
+            self.scoreLabel.text = self.modelView?.getScore()
+            self.overviewTextView.text = self.modelView?.getOverview()
+        }
+        
     }
 }
