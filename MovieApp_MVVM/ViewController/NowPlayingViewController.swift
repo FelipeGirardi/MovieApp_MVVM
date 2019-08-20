@@ -26,7 +26,7 @@ extension NowPlayingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultCell", for: indexPath) as? CollectionCellViewController
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "otherCell", for: indexPath) as? CollectionCellViewController
         cell?.titleLabel.text = "Fast and furios"
         cell?.posterImgView.image = UIImage(named: "lionking")
         cell?.scoreLabel.text = "2.3"
