@@ -9,5 +9,13 @@
 import Foundation
 
 class MainViewModel {
-    
+
+    var searchedMovies = SearchedMovies(page: 0, totalResults: 0, totalPages: 0, results: [])
+
+    func fetchSearchedMovies(typedString: String) {
+        DataService.getMoviesThroughSearch(typedString: typedString, completionHandler: { movies in
+            self.searchedMovies = movies
+        })
+    }
+
 }
