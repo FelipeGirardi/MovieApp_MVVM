@@ -22,10 +22,6 @@ extension PopularCell: UITableViewDelegate, UITableViewDataSource {
         return 20
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell") as? TableCellViewController
         cell?.titleLabel.text = "Rei leão"

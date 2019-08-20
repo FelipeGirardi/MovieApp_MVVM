@@ -9,5 +9,7 @@
 import UIKit
 
 class CollectionCellViewController: UICollectionViewCell {
-    
+    @IBOutlet var posterImgView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
 }
