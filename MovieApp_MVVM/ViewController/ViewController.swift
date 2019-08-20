@@ -76,14 +76,15 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            print("Now playing")
+//            print("Now playing")
             let cell = tableView.dequeueReusableCell(withIdentifier: "nowPlayingCell") as? NowPlayingCell
+            cell?.modelView = NowPlayingCellViewModel()
             cell?.nowPlayingCollection.delegate = cell
             cell?.nowPlayingCollection.dataSource = cell
             return cell!
         }
         else {
-            print("Popular movies")
+//            print("Popular movies")
             let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell") as? TableCellViewController
             cell?.titleLabel.text = self.viewModel.getPopularTitleByIndex(indexPath.row)
             cell?.overviewLabel.text = self.viewModel.getPopularOverviewByIndex(indexPath.row)

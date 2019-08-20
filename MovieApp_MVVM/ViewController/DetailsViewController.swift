@@ -30,7 +30,7 @@ class DetailsViewController: UIViewController {
 }
 
 extension DetailsViewController: FetchMovieDelegate {
-    func didFinishFetchMovie() {
+    func didFinishFetchingMovie() {
         DispatchQueue.main.async {
             self.titleLabel.text = self.modelView?.getTitle()
             self.genreLabel.text = self.modelView?.getGenre()

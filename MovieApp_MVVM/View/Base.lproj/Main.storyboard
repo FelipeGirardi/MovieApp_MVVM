@@ -92,22 +92,26 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="yDg-Rb-Rqo">
-                                                                        <rect key="frame" x="0.0" y="268" width="17" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="262" width="17" height="23"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="17" id="PvH-H0-9za"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast and Furious Hobbs and Shawn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaa-Bj-fnA">
-                                                                        <rect key="frame" x="0.0" y="245" width="151" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Fast and Furious Hobbs and Shawn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaa-Bj-fnA">
+                                                                        <rect key="frame" x="0.0" y="239" width="151" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="azh-yy-ac7">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="151" height="235"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="229"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="229" id="Yok-Id-7Ha"/>
+                                                                            <constraint firstAttribute="width" constant="152" id="y5H-PW-dmc"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-7V-ky5">
-                                                                        <rect key="frame" x="19.5" y="270" width="18.5" height="15"/>
+                                                                        <rect key="frame" x="19.5" y="262" width="18.5" height="23"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -116,13 +120,13 @@
                                                             </view>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="yDg-Rb-Rqo" secondAttribute="bottom" constant="31" id="0F3-Rg-bLJ"/>
-                                                                <constraint firstItem="azh-yy-ac7" firstAttribute="leading" secondItem="O7P-zv-gkd" secondAttribute="leading" id="0N7-4g-zPQ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Kaa-Bj-fnA" secondAttribute="trailing" id="2zj-7Q-FGl"/>
-                                                                <constraint firstAttribute="trailing" secondItem="azh-yy-ac7" secondAttribute="trailing" id="3dF-Kx-66W"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="Bf1-7V-ky5" secondAttribute="trailing" constant="97" id="7fd-xv-YnM"/>
                                                                 <constraint firstItem="Bf1-7V-ky5" firstAttribute="leading" secondItem="yDg-Rb-Rqo" secondAttribute="trailing" constant="2.5" id="NIa-CY-pXb"/>
+                                                                <constraint firstItem="Bf1-7V-ky5" firstAttribute="centerY" secondItem="yDg-Rb-Rqo" secondAttribute="centerY" id="WE1-ZX-6Ya"/>
                                                                 <constraint firstItem="Kaa-Bj-fnA" firstAttribute="leading" secondItem="O7P-zv-gkd" secondAttribute="leading" id="Ztz-1o-Jbk"/>
                                                                 <constraint firstItem="azh-yy-ac7" firstAttribute="top" secondItem="O7P-zv-gkd" secondAttribute="top" id="bZ0-D3-BOW"/>
+                                                                <constraint firstItem="azh-yy-ac7" firstAttribute="leading" secondItem="Kaa-Bj-fnA" secondAttribute="leading" id="bkM-ss-CbJ"/>
                                                                 <constraint firstItem="yDg-Rb-Rqo" firstAttribute="leading" secondItem="Kaa-Bj-fnA" secondAttribute="leading" id="kcY-Pe-KSh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Bf1-7V-ky5" secondAttribute="bottom" constant="31" id="pqg-Bg-IFB"/>
                                                                 <constraint firstItem="yDg-Rb-Rqo" firstAttribute="top" secondItem="Kaa-Bj-fnA" secondAttribute="bottom" constant="6" id="tDV-5m-4dR"/>
@@ -370,27 +374,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lionking" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-Nq-5Uq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-Nq-5Uq">
                                 <rect key="frame" x="21" y="18" width="128" height="194"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="194" id="Jxs-6H-mCo"/>
                                     <constraint firstAttribute="width" constant="128" id="ZNT-ss-oGv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lion King" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-P3-dYq">
-                                <rect key="frame" x="163" y="103" width="223" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-P3-dYq">
+                                <rect key="frame" x="163" y="103" width="223" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure, Drama, Animation, Family, Action" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-zD-u7l">
-                                <rect key="frame" x="163" y="134" width="223" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-zD-u7l">
+                                <rect key="frame" x="163" y="110" width="223" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="f1M-HL-Y8K">
-                                <rect key="frame" x="163" y="187" width="17" height="16"/>
+                                <rect key="frame" x="163" y="122" width="17" height="16"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-XB-IdC">
                                 <rect key="frame" x="21" y="230" width="67" height="18"/>
@@ -401,13 +405,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKW-YN-LxI">
                                 <rect key="frame" x="21" y="260" width="365" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. \n\nWith help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his.Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. \n\nSimba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. "</string>
                                 <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEH-kk-0HT">
-                                <rect key="frame" x="184" y="189" width="16" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEH-kk-0HT">
+                                <rect key="frame" x="184" y="124" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -453,6 +456,5 @@
     <resources>
         <image name="Lamp" width="114" height="150"/>
         <image name="Star" width="17" height="16.5"/>
-        <image name="lionking" width="128" height="194"/>
     </resources>
 </document>

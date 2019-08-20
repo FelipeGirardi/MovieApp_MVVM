@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol FetchMovieDelegate: AnyObject {
-    func didFinishFetchMovie()
+    func didFinishFetchingMovie()
 }
 class DetailsViewModel {
 
@@ -21,7 +21,7 @@ class DetailsViewModel {
     func fetchMovieFromID() {
         DataService.getMovieDetails(movieID: self.idMovie ?? 0) { movie in
             self.movieInfo = movie
-            self.delegate?.didFinishFetchMovie()
+            self.delegate?.didFinishFetchingMovie()
         }
     }
     
