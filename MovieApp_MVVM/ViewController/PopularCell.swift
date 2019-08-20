@@ -11,7 +11,6 @@ import UIKit
 class PopularCell: UITableViewCell {
     @IBOutlet weak var popularTableView: UITableView!
     var viewModel: PopularCellViewModel = PopularCellViewModel()
-    
 }
 
 extension PopularCell: UITableViewDelegate, UITableViewDataSource {

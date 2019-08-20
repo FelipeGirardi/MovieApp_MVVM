@@ -9,18 +9,18 @@
 import Foundation
 
 class PopularCellViewModel {
-    
+
     var popularMovies = PopularMovies(page: 0, totalResults: 0, totalPages: 0, results: [])
-    
+
     init() {
         fetchPopularMovies()
     }
-    
+
     func fetchPopularMovies() {
         DataService.getPopularMovies { movies in
             self.popularMovies = movies
             //print(self.popularMovies)
         }
     }
-    
+
 }

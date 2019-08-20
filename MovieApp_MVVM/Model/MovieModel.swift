@@ -14,7 +14,7 @@ struct NowPlayingMovies: Codable {
     let page, totalResults: Int?
     let dates: Dates?
     let totalPages: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case results, page
         case totalResults = "total_results"
@@ -26,7 +26,7 @@ struct NowPlayingMovies: Codable {
 struct PopularMovies: Codable {
     let page, totalResults, totalPages: Int?
     let results: [Result]?
-    
+
     enum CodingKeys: String, CodingKey {
         case page
         case totalResults = "total_results"
@@ -54,7 +54,7 @@ struct Result: Codable {
     let backdropPath: String?
     let adult: Bool?
     let overview, releaseDate: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case voteCount = "vote_count"
         case id, video
@@ -99,7 +99,7 @@ struct Movie: Codable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
@@ -130,7 +130,7 @@ struct Genre: Codable {
 struct BelongsToCollection: Codable {
     let id: Int?
     let name, posterPath, backdropPath: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name
         case posterPath = "poster_path"
@@ -142,7 +142,7 @@ struct BelongsToCollection: Codable {
 struct ProductionCompany: Codable {
     let id: Int?
     let logoPath, name, originCountry: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case logoPath = "logo_path"
@@ -154,7 +154,7 @@ struct ProductionCompany: Codable {
 // MARK: - ProductionCountry
 struct ProductionCountry: Codable {
     let iso3166_1, name: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case iso3166_1 = "iso_3166_1"
         case name
@@ -164,7 +164,7 @@ struct ProductionCountry: Codable {
 // MARK: - SpokenLanguage
 struct SpokenLanguage: Codable {
     let iso639_1, name: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case iso639_1 = "iso_639_1"
         case name
@@ -174,7 +174,7 @@ struct SpokenLanguage: Codable {
 struct SearchedMovies: Codable {
     let page, totalResults, totalPages: Int
     let results: [Result]
-    
+
     enum CodingKeys: String, CodingKey {
         case page
         case totalResults = "total_results"

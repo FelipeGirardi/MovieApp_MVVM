@@ -16,26 +16,27 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
     
-    private var modelView: DetailsViewModel = DetailsViewModel()
-    
-    var titleStr: String?
-    var scoreFloat: Float?
-    var overviewStr: String?
-    var posterImg: UIImage?
+    var modelView: DetailsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         
-        if let overviewText: String = overviewStr {
-            // Popular movies
-            // Need to create a request for movie gender
-        }
-        else {
-            // Now Playing
-            // Need to create a request for movie gender
-            // Need to create a request for movie overview
-        }
+        self.modelView?.delegate = self
+        self.modelView?.fetchMovieFromID()
     }
-    
-    
+}
+
+extension DetailsViewController: FetchMovieDelegate {
+    func didFinishFetchMovie() {
+        DispatchQueue.main.async {
+            self.titleLabel.text = self.modelView?.getTitle()
+            self.genreLabel.text = self.modelView?.getGenre()
+            self.scoreLabel.text = self.modelView?.getScore()
+            self.overviewTextView.text = self.modelView?.getOverview()
+        }
+        
+    }
 }
