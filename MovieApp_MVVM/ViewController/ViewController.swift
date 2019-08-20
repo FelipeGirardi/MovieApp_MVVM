@@ -88,7 +88,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.titleLabel.text = self.viewModel.getPopularTitleByIndex(indexPath.row)
             cell?.overviewLabel.text = self.viewModel.getPopularOverviewByIndex(indexPath.row)
             cell?.scoreLabel.text = self.viewModel.getPopularScoreByIndex(indexPath.row)
-            cell?.posterImgView.image = UIImage(named: "lionking")
+            
+            guard let posterURL = URL(string: self.viewModel.getPopularPosterImageByIndex(indexPath.row)),
+                  let posterImgData = try? Data(contentsOf: posterURL) else { return cell! }
+            cell?.posterImgView.image = UIImage(data: posterImgData)
+            
             return cell!
         }
         

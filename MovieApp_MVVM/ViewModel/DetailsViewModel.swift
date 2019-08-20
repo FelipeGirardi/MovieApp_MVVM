@@ -38,9 +38,14 @@ class DetailsViewModel {
     }
     
     func getGenre() -> String {
-        guard let genre = self.movieInfo.genres else { return "No genre"}
+        guard let genre = self.movieInfo.genres else { return "No genre" }
         return (genre.map({ $0.name ?? "" })
             .joined(separator: ", "))
+    }
+    
+    func getPoster() -> String {
+        guard let poster = self.movieInfo.posterPath else { return "No poster" }
+        return "https://image.tmdb.org/t/p/w500\(poster)"
     }
     
     init(id: Int) {

@@ -440,7 +440,7 @@
                     <connections>
                         <outlet property="genreLabel" destination="o6f-zD-u7l" id="IDh-pf-G2w"/>
                         <outlet property="overviewTextView" destination="JKW-YN-LxI" id="I2N-lq-yg7"/>
-                        <outlet property="posterImgView" destination="oZ9-Nq-5Uq" id="hvX-U8-jfW"/>
+                        <outlet property="posterImgView" destination="oZ9-Nq-5Uq" id="U8c-VO-mjo"/>
                         <outlet property="scoreLabel" destination="YEH-kk-0HT" id="gu8-9Q-dZP"/>
                         <outlet property="titleLabel" destination="vVe-P3-dYq" id="eZE-n9-8SF"/>
                     </connections>

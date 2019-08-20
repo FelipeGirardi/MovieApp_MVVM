@@ -52,6 +52,13 @@ class MainViewModel {
         return ""
     }
     
+    func getPopularPosterImageByIndex(_ index: Int) -> String {
+        if let result = self.popularMovies.results {
+            return "https://image.tmdb.org/t/p/w500\(result[index].posterPath ?? "")"
+        }
+        return ""
+    }
+    
     func getMovieIdByIndex(_ index: Int) -> Int {
         if let result = self.popularMovies.results {
             return result[index].id ?? 0

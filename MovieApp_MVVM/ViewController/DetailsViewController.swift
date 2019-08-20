@@ -36,6 +36,10 @@ extension DetailsViewController: FetchMovieDelegate {
             self.genreLabel.text = self.modelView?.getGenre()
             self.scoreLabel.text = self.modelView?.getScore()
             self.overviewTextView.text = self.modelView?.getOverview()
+            
+            guard let posterURL = URL(string: self.modelView?.getPoster() ?? ""),
+                let posterImgData = try? Data(contentsOf: posterURL) else { return }
+            self.posterImgView.image = UIImage(data: posterImgData)
         }
         
     }
