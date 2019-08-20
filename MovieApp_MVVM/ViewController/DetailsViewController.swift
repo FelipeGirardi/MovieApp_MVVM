@@ -40,6 +40,7 @@ extension DetailsViewController: FetchMovieDelegate {
             guard let posterURL = URL(string: self.modelView?.getPoster() ?? ""),
                 let posterImgData = try? Data(contentsOf: posterURL) else { return }
             self.posterImgView.image = UIImage(data: posterImgData)
+            self.posterImgView.layer.cornerRadius = 10.0
         }
         
     }

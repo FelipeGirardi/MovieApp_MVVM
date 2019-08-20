@@ -92,6 +92,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             guard let posterURL = URL(string: self.viewModel.getPopularPosterImageByIndex(indexPath.row)),
                   let posterImgData = try? Data(contentsOf: posterURL) else { return cell! }
             cell?.posterImgView.image = UIImage(data: posterImgData)
+            cell?.posterImgView.layer.cornerRadius = 10.0
+            
             
             return cell!
         }
