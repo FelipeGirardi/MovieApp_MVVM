@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieApp_MVVM/ViewController/ViewController.swift"
-            timestampString = "588017129.167673"
+            timestampString = "588026464.5505739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

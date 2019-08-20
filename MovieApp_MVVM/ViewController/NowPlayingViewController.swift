@@ -16,6 +16,9 @@ class NowPlayingViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.tintColor = .black
         // Do any additional setup after loading the view.
     }
 }
@@ -30,6 +33,7 @@ extension NowPlayingViewController: UICollectionViewDelegate, UICollectionViewDa
         cell?.titleLabel.text = "Fast and furios"
         cell?.posterImgView.image = UIImage(named: "lionking")
         cell?.scoreLabel.text = "2.3"
+        cell?.posterImgView.layer.cornerRadius = 10.0
         return cell!
     }
     
