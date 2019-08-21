@@ -33,6 +33,7 @@ class NowPlayingCellViewModel {
     
     func getNowPlayingTitleByIndex(_ index: Int) -> String {
         if let result = self.nowPlayingMovies.results {
+//            return index < result.count ? result[index] :  result
             return result[index].title ?? ""
         }
         return ""
@@ -57,6 +58,10 @@ class NowPlayingCellViewModel {
             return "https://image.tmdb.org/t/p/w500\(result[index].posterPath ?? "")"
         }
         return ""
+    }
+    
+    func numberOfItems() -> Int {
+        return self.nowPlayingMovies.results?.count ?? 0
     }
     
 }

@@ -69,8 +69,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //            print("Now playing")
             let cell = tableView.dequeueReusableCell(withIdentifier: "nowPlayingCell") as? NowPlayingCell
             
-            cell?.modelView?.nowPlayingDelegate = cell
             cell?.modelView = NowPlayingCellViewModel()
+            cell?.modelView?.nowPlayingDelegate = cell
             cell?.nowPlayingCollection.delegate = cell
             cell?.nowPlayingCollection.dataSource = cell
             cell?.toDetailDelegate = self
@@ -103,7 +103,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (section == 0) ? 1 : 20
+        return (section == 0) ? 1 : min(20, viewModel.numberOfItems)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

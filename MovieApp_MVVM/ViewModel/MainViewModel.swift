@@ -65,4 +65,8 @@ class MainViewModel {
         }
         return 0
     }
+    
+    var numberOfItems: Int {
+        return popularMovies.results?.count ?? 0
+    }
 }

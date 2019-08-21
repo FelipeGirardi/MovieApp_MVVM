@@ -22,7 +22,7 @@ class NowPlayingCell: UITableViewCell {
 extension NowPlayingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let mv = modelView else { return 0 }
-        return 5
+        return mv.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
