@@ -23,7 +23,12 @@ class NowPlayingViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .black
         // Do any additional setup after loading the view.
-        resultsNumberLabel.text = "Showing \(self.modelView?.nowPlayingMovies.results?.count ?? 0) results"
+        
+        var resultsCount: String = "0"
+        if let moviesNumber = self.modelView?.getNumberOfRsults() {
+            resultsCount = moviesNumber
+        }
+        resultsNumberLabel.text = "Showing \(resultsCount) results"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

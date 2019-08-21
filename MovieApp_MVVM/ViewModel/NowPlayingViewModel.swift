@@ -56,4 +56,11 @@ class NowPlayingViewModel {
         }
         return 0
     }
+    
+    func getNumberOfRsults() -> String {
+        if let result = self.nowPlayingMovies.results {
+            return String(result.count)
+        }
+        return String(0)
+    }
 }
