@@ -19,24 +19,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainTableView.isHidden = true
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 212-30, y: 483, width: 35, height: 35))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+        self.view.addSubview(loadingIndicator)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute:
         {
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2, width: 50, height: 50))
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating()
-            self.view.addSubview(loadingIndicator)
             self.viewModel.fetchPopularMovies()
             self.mainTableView.delegate = self
             self.mainTableView.dataSource = self
             loadingIndicator.removeFromSuperview()
             self.mainTableView.isHidden = false
             self.mainTableView.reloadData()
-            
-
         })
-//
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -55,7 +52,6 @@ class ViewController: UIViewController {
             print("foi")
         default:
             break
-            
         }
         
     }
