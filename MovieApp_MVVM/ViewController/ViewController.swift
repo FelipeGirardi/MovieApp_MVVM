@@ -19,34 +19,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainTableView.isHidden = true
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 212-30, y: 483, width: 35, height: 35))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+        self.view.addSubview(loadingIndicator)
         
-//        DispatchQueue.global(qos: .background).async {
-//            self.viewModel.fetchPopularMovies()
-//
-//            DispatchQueue.main.async {
-//                self.mainTableView.delegate = self
-//                self.mainTableView.dataSource = self
-//                self.mainTableView.isHidden = false
-//                self.mainTableView.reloadData()
-//            }
-//        }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute:
         {
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2, width: 50, height: 50))
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating()
-            self.view.addSubview(loadingIndicator)
             self.viewModel.fetchPopularMovies()
             self.mainTableView.delegate = self
             self.mainTableView.dataSource = self
             loadingIndicator.removeFromSuperview()
             self.mainTableView.isHidden = false
             self.mainTableView.reloadData()
-            
-
         })
-//
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -71,7 +58,6 @@ class ViewController: UIViewController {
             }
         default:
             break
-            
         }
         
     }
@@ -87,6 +73,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.modelView = NowPlayingCellViewModel()
             cell?.nowPlayingCollection.delegate = cell
             cell?.nowPlayingCollection.dataSource = cell
+            cell?.toDetailDelegate = self
             return cell!
         }
         else {
@@ -100,7 +87,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                   let posterImgData = try? Data(contentsOf: posterURL) else { return cell! }
             cell?.posterImgView.image = UIImage(data: posterImgData)
             cell?.posterImgView.layer.cornerRadius = 10.0
-            
             
             return cell!
         }
@@ -147,5 +133,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+}
+
+extension ViewController: PerformToDetailDelegate {
+    func performSegueDelegate(id: Int) {
+        self.idMovie = id
+        performSegue(withIdentifier: "toDetailSegue", sender: nil)
     }
 }
