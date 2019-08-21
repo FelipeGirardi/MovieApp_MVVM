@@ -13,6 +13,7 @@ class NowPlayingViewController: UIViewController {
     @IBOutlet weak var resultsNumberLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var modelView: NowPlayingViewModel?
+    var idMovie: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,19 @@ class NowPlayingViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .black
         // Do any additional setup after loading the view.
         resultsNumberLabel.text = "Showing \(self.modelView?.nowPlayingMovies.results?.count ?? 0) results"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "toDetail":
+            if let detailCtrl = segue.destination as? DetailsViewController {
+                if detailCtrl.modelView == nil {
+                    detailCtrl.modelView = DetailsViewModel(id: self.idMovie)
+                }
+            }
+        default:
+            break
+        }
     }
 }
 
@@ -52,6 +66,10 @@ extension NowPlayingViewController: UICollectionViewDelegate, UICollectionViewDa
         return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.idMovie = self.modelView?.getNowPlayingIdByIndex(indexPath.row) ?? 0
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
+    }
 }
 
 extension NowPlayingViewController: FetchAllNowPlayingMovies {

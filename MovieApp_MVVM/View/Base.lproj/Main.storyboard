@@ -374,6 +374,7 @@
                     <connections>
                         <outlet property="collectionView" destination="o6H-82-tbP" id="ebA-nH-7fO"/>
                         <outlet property="resultsNumberLabel" destination="oKU-gY-esG" id="yeq-NG-0rF"/>
+                        <segue destination="9OA-HL-Fpo" kind="show" identifier="toDetail" id="beb-wT-H41"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it0-5j-kxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,4 +474,7 @@
         <image name="Lamp" width="114" height="150"/>
         <image name="Star" width="17" height="16.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="beb-wT-H41"/>
+    </inferredMetricsTieBreakers>
 </document>

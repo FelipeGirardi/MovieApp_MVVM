@@ -50,4 +50,10 @@ class NowPlayingViewModel {
         return ""
     }
 
+    func getNowPlayingIdByIndex(_ index: Int) -> Int {
+        if let result = self.nowPlayingMovies.results {
+            return result[index].id ?? 0
+        }
+        return 0
+    }
 }
