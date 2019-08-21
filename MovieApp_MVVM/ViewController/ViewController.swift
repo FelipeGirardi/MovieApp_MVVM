@@ -55,8 +55,6 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -64,10 +62,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
 //            print("Now playing")
             let cell = tableView.dequeueReusableCell(withIdentifier: "nowPlayingCell") as? NowPlayingCell
+            
+            cell?.modelView?.nowPlayingDelegate = cell
             cell?.modelView = NowPlayingCellViewModel()
             cell?.nowPlayingCollection.delegate = cell
             cell?.nowPlayingCollection.dataSource = cell
             cell?.toDetailDelegate = self
+
             return cell!
         }
         else {
