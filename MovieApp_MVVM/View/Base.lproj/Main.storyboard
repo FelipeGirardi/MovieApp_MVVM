@@ -456,9 +456,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="genreLabel" destination="o6f-zD-u7l" id="IDh-pf-G2w"/>
+                        <outlet property="overviewLabel" destination="LQt-XB-IdC" id="L1y-yA-2z5"/>
                         <outlet property="overviewTextView" destination="JKW-YN-LxI" id="I2N-lq-yg7"/>
                         <outlet property="posterImgView" destination="oZ9-Nq-5Uq" id="U8c-VO-mjo"/>
                         <outlet property="scoreLabel" destination="YEH-kk-0HT" id="gu8-9Q-dZP"/>
+                        <outlet property="starImage" destination="f1M-HL-Y8K" id="b6Q-UN-Vnb"/>
                         <outlet property="titleLabel" destination="vVe-P3-dYq" id="eZE-n9-8SF"/>
                     </connections>
                 </viewController>

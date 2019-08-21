@@ -15,7 +15,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var starImage: UIImageView!
+    @IBOutlet weak var overviewLabel: UILabel!
     
+    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 212-30, y: 483, width: 35, height: 35))
     var modelView: DetailsViewModel?
     
     override func viewDidLoad() {
@@ -24,6 +27,14 @@ class DetailsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
+        starImage.isHidden = true
+        overviewLabel.isHidden = true
+        
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+        self.view.addSubview(loadingIndicator)
+        
         self.modelView?.delegate = self
         self.modelView?.fetchMovieFromID()
     }
@@ -31,7 +42,12 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController: FetchMovieDelegate {
     func didFinishFetchingMovie() {
+        
         DispatchQueue.main.async {
+            self.loadingIndicator.removeFromSuperview()
+            self.starImage.isHidden = false
+            self.overviewLabel.isHidden = false
+            
             self.titleLabel.text = self.modelView?.getTitle()
             self.genreLabel.text = self.modelView?.getGenre()
             self.scoreLabel.text = self.modelView?.getScore()

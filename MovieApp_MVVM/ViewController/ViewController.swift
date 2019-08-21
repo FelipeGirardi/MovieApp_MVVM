@@ -25,9 +25,9 @@ class ViewController: UIViewController {
         loadingIndicator.startAnimating()
         self.view.addSubview(loadingIndicator)
         
+        self.viewModel.fetchPopularMovies()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute:
         {
-            self.viewModel.fetchPopularMovies()
             self.mainTableView.delegate = self
             self.mainTableView.dataSource = self
             loadingIndicator.removeFromSuperview()
