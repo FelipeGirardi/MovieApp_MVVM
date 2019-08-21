@@ -287,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o6H-82-tbP">
-                                <rect key="frame" x="23" y="0.0" width="368" height="774"/>
+                                <rect key="frame" x="23" y="58" width="368" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kul-hN-Hq1">
                                     <size key="itemSize" width="151" height="313"/>
@@ -344,26 +344,36 @@
                                             <constraint firstAttribute="trailing" secondItem="InK-3M-XwD" secondAttribute="trailing" id="yS7-Os-95m"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="posterImgView" destination="rO5-LA-Ept" id="CZp-0a-OYv"/>
-                                            <outlet property="scoreLabel" destination="D89-81-4zY" id="YEa-Ir-e74"/>
-                                            <outlet property="titleLabel" destination="InK-3M-XwD" id="HrZ-nY-d1H"/>
+                                            <outlet property="posterImgView" destination="rO5-LA-Ept" id="40U-fT-0rN"/>
+                                            <outlet property="scoreLabel" destination="D89-81-4zY" id="Q5g-Xm-8kQ"/>
+                                            <outlet property="titleLabel" destination="InK-3M-XwD" id="2LY-D3-w7B"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-gY-esG">
+                                <rect key="frame" x="22" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oKU-gY-esG" firstAttribute="top" secondItem="6wW-aL-a9j" secondAttribute="top" constant="20" id="2dz-Q0-1PX"/>
                             <constraint firstItem="6wW-aL-a9j" firstAttribute="trailing" secondItem="o6H-82-tbP" secondAttribute="trailing" constant="23" id="Nqe-mR-vHb"/>
-                            <constraint firstItem="o6H-82-tbP" firstAttribute="top" secondItem="6wW-aL-a9j" secondAttribute="top" id="QSq-m2-DtA"/>
+                            <constraint firstItem="o6H-82-tbP" firstAttribute="top" secondItem="6wW-aL-a9j" secondAttribute="top" constant="58" id="QSq-m2-DtA"/>
                             <constraint firstItem="6wW-aL-a9j" firstAttribute="bottom" secondItem="o6H-82-tbP" secondAttribute="bottom" id="dPn-hR-WcX"/>
                             <constraint firstItem="o6H-82-tbP" firstAttribute="leading" secondItem="6wW-aL-a9j" secondAttribute="leading" constant="23" id="hKP-iA-cI5"/>
+                            <constraint firstItem="o6H-82-tbP" firstAttribute="top" secondItem="oKU-gY-esG" secondAttribute="bottom" constant="17" id="ic2-qT-0lA"/>
+                            <constraint firstItem="oKU-gY-esG" firstAttribute="leading" secondItem="6wW-aL-a9j" secondAttribute="leading" constant="22" id="soJ-0u-cw6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6wW-aL-a9j"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="o6H-82-tbP" id="ebA-nH-7fO"/>
+                        <outlet property="resultsNumberLabel" destination="oKU-gY-esG" id="yeq-NG-0rF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it0-5j-kxr" userLabel="First Responder" sceneMemberID="firstResponder"/>

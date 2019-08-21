@@ -59,10 +59,16 @@ class ViewController: UIViewController {
         switch segue.identifier {
         case "toDetailSegue":
             if let detailCtrl = segue.destination as? DetailsViewController {
-                detailCtrl.modelView = DetailsViewModel(id: self.idMovie)
+                if detailCtrl.modelView == nil {
+                    detailCtrl.modelView = DetailsViewModel(id: self.idMovie)
+                }
             }
         case "toNowPlayingSegue":
-            print("foi")
+            if let nowPlayingCtrl = segue.destination as? NowPlayingViewController {
+                if nowPlayingCtrl.modelView == nil {
+                    nowPlayingCtrl.modelView = NowPlayingViewModel()
+                }
+            }
         default:
             break
             
