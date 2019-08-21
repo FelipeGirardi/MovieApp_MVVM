@@ -45,6 +45,13 @@ class NowPlayingCellViewModel {
         return ""
     }
     
+    func getNowPlayingIdByIndex(_ index: Int) -> Int {
+        if let result = self.nowPlayingMovies.results {
+            return result[index].id ?? 0
+        }
+        return 0
+    }
+    
     func getNowPlayingPosterImageByIndex(_ index: Int) -> String {
         if let result = self.nowPlayingMovies.results {
             return "https://image.tmdb.org/t/p/w500\(result[index].posterPath ?? "")"

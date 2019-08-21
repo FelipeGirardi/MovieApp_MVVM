@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol PerformToDetailDelegate {
+    func performSegueDelegate(id: Int)
+}
+
 class NowPlayingCell: UITableViewCell {
     @IBOutlet weak var nowPlayingCollection: UICollectionView!
     var modelView: NowPlayingCellViewModel?
+    var toDetailDelegate: PerformToDetailDelegate?
 }
 
 extension NowPlayingCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -22,20 +27,24 @@ extension NowPlayingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultCell", for: indexPath) as? CollectionCellViewController
         cell?.titleLabel.text = self.modelView!.getNowPlayingTitleByIndex(indexPath.row)
-        print(cell?.titleLabel.text)
+//        print(cell?.titleLabel.text)
         cell?.scoreLabel.text = self.modelView!.getNowPlayingScoreByIndex(indexPath.row)
-        print("criou cell")
+//        print("criou cell")
         guard let posterURL = URL(string: self.modelView!.getNowPlayingPosterImageByIndex(indexPath.row)),
             let posterImgData = try? Data(contentsOf: posterURL) else { return cell! }
         cell?.posterImgView.image = UIImage(data: posterImgData)
         cell?.posterImgView.layer.cornerRadius = 10.0
         return cell!
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.toDetailDelegate?.performSegueDelegate(id: self.modelView?.getNowPlayingIdByIndex(indexPath.row) ?? 0)
+    }
 }
 
 extension NowPlayingCell: FetchNowPlayingMovies {
     func didFinishedFetchNowPlayingMovies() {
-        print(#function)
+//        print(#function)
         self.nowPlayingCollection.reloadData()
     }
 }
